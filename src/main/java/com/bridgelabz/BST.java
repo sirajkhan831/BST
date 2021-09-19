@@ -1,6 +1,7 @@
 package com.bridgelabz;
 
 public class BST {
+    public int count=0;
 
     // node that defines bst
     static class Node {
@@ -37,7 +38,7 @@ public class BST {
     }
 
     Node insertRecursive(int key, Node root) {
-        // if empty
+        // if empty,insert as root
         if (root == null) {
             root = new Node(key);
             return root;
@@ -58,13 +59,17 @@ public class BST {
     // displaying in inorder
     void inorder() {
         inorderRecursive(root);
+        //for displaying count
+        System.out.println("\n count of added element into tree is "+count);
     }
 
-    void inorderRecursive(Node root) {
+    int inorderRecursive(Node root) {
         if (root != null) {
-            inorderRecursive(root.left);
-            System.out.print(root.key + " ");
-            inorderRecursive(root.right);
+            count++;
+            inorderRecursive(root.left); //going through left node
+            System.out.print(root.key + " "); //going through root node
+            inorderRecursive(root.right); //going through right node
         }
+        return count;
     }
 }
