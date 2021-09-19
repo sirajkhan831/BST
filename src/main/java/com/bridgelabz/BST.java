@@ -1,10 +1,10 @@
 package com.bridgelabz;
 
 public class BST {
-    public int count=0;
+    public int count = 0;
 
     // node that defines bst
-    static class Node {
+    class Node {
         int key;
         Node left, right;
 
@@ -60,7 +60,7 @@ public class BST {
     void inorder() {
         inorderRecursive(root);
         //for displaying count
-        System.out.println("\n count of added element into tree is "+count);
+        System.out.println("\n count of added element into tree is " + count);
     }
 
     int inorderRecursive(Node root) {
@@ -71,5 +71,21 @@ public class BST {
             inorderRecursive(root.right); //going through right node
         }
         return count;
+    }
+
+    //search method
+    void search(int data) {
+        while (root != null) {
+            if (data < root.key) {//checking input is lessthan root or not
+                root = root.left; //moving into left node
+            } else if (data > root.key) {
+                root = root.right;
+            } else if (data == root.key) { //checking data is greater than root
+                System.out.println(data + " is found");//moving into right children
+                break;
+            } else {
+                System.out.println("no data found");
+            }
+        }
     }
 }

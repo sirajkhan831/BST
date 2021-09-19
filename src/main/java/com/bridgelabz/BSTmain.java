@@ -3,6 +3,7 @@ package com.bridgelabz;
 public class BSTmain {
 
     public static void main(String[] args) {
+
         BST obj = new BST();
 
         //inserting 1st uc
@@ -26,6 +27,9 @@ public class BSTmain {
         //displaying in inorder method
         System.out.println("Data in the format of ascending order");
         obj.inorder();
+
+        //uc3 searching method calling
+        obj.search(40);
 
     }
 }
